@@ -1,4 +1,5 @@
-
+create database if not exists db_admin;
+use db_admin;
 CREATE TABLE IF NOT EXISTS `t_authority` (
   `id` char(36)  NOT NULL,
   `menuid` char(50)  DEFAULT NULL,

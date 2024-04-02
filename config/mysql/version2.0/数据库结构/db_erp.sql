@@ -1,4 +1,5 @@
-
+create database if not exists `db_erp`
+use `db_erp`;
 
 -- 导出  表 db_erp.t_dimensions 结构
 CREATE TABLE IF NOT EXISTS `t_dimensions` (
@@ -644,7 +645,7 @@ CREATE TABLE IF NOT EXISTS `t_erp_material_consumable_safety_stock` (
   `shopid` bigint(20) unsigned NOT NULL,
   `amount` int(10) unsigned NOT NULL DEFAULT '0',
   `operator` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `opttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `opttime` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `shopid` (`shopid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1738145287272177666 DEFAULT CHARSET=utf8;
@@ -1009,8 +1010,8 @@ CREATE TABLE IF NOT EXISTS `t_erp_purchase_alibaba_order_productitems` (
   `productImgUrl` varchar(100)  NOT NULL DEFAULT '0',
   `unit` varchar(10)  NOT NULL DEFAULT '0',
   `refundStatus` varchar(30)  NOT NULL DEFAULT '0',
-  `gmtCreate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `gmtModified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `gmtCreate` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
+  `gmtModified` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   PRIMARY KEY (`orderid`,`skuID`) USING BTREE
 ) ENGINE=InnoDB      ROW_FORMAT=DYNAMIC;
 
@@ -2586,9 +2587,9 @@ CREATE TABLE IF NOT EXISTS `t_erp_warehouse_address` (
   `remark` varchar(200) DEFAULT '' COMMENT '备注',
   `disabled` bit(1) DEFAULT b'0' COMMENT '是否失效（是否删除）',
   `operator` bigint(20) unsigned DEFAULT '0' COMMENT '修改人',
-  `opttime` datetime DEFAULT '0000-00-00 00:00:00' COMMENT '修改时间',
+  `opttime` datetime DEFAULT '1970-01-01 00:00:00' COMMENT '修改时间',
   `creator` bigint(20) unsigned DEFAULT '0' COMMENT '创建人',
-  `creattime` datetime DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `creattime` datetime DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `shopid_name` (`shopid`,`name`) USING BTREE,
   UNIQUE KEY `shopid_number` (`shopid`,`number`) USING BTREE

@@ -1,4 +1,5 @@
-
+create database if not exists db_amazon;
+use db_amazon;
 
 -- 导出  表 db_amazon.t_amazonseller_market 结构
 CREATE TABLE IF NOT EXISTS `t_amazonseller_market` (
@@ -4190,7 +4191,7 @@ CREATE TABLE IF NOT EXISTS `t_product_rank_sales_his` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `market` char(5) NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL DEFAULT '0',
-  `byday` date NOT NULL DEFAULT '0000-00-00',
+  `byday` date NOT NULL DEFAULT '1970-01-01',
   `ordersum` int(11) NOT NULL DEFAULT '0',
   `rank` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)

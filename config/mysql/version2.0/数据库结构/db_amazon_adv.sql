@@ -1,4 +1,5 @@
-
+create database if not exists `db_amazon_adv` default character set utf8mb4 collate utf8mb4_0900_ai_ci;
+use `db_amazon_adv`;
 -- 导出  表 db_amazon_adv.t_advert_warning_keywords_data 结构
 CREATE TABLE IF NOT EXISTS `t_advert_warning_keywords_data` (
   `keywordid` bigint(20) unsigned NOT NULL,
@@ -690,7 +691,7 @@ CREATE TABLE IF NOT EXISTS `t_amz_adv_media_hsa` (
   `statusMetadata` varchar(100) DEFAULT NULL,
   `publishedMediaUrl` varchar(2000) DEFAULT NULL,
   `operator` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `opttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `opttime` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   PRIMARY KEY (`mediaId`),
   KEY `profileid` (`profileid`,`opttime`)
 ) ENGINE=InnoDB;
