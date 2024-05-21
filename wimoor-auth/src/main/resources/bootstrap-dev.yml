@@ -9,7 +9,9 @@ spring:
     nacos:
       # 注册中心
       discovery:
-        server-addr: localhost:8848
+        server-addr: e.faircb.com:8848
+        username: nacos
+        password: 19860504Sa
       # 配置中心
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
@@ -21,4 +23,6 @@ spring:
         shared-configs[1]: 
           data-id: wimoor-commom-ext
           refresh: true
+        username: ${spring.cloud.nacos.discovery.username}
+        password: ${spring.cloud.nacos.discovery.password}
 

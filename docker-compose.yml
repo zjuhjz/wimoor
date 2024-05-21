@@ -2,14 +2,18 @@ version: '3.8'
 
 services:
   mysql:
+    container_name: mysql
     image: mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
     ports:
       - "3306:3306"
+    networks:
+      - nacos-mysql3
 
   nacos:
+    container_name: nacos
     image: nacos/nacos-server:latest
     restart: always
     ports:
@@ -17,6 +21,16 @@ services:
     environment:
       MODE: standalone # 设置 Nacos 的模式为独立模式
       SPRING_DATASOURCE_PLATFORM: mysql  # 使用 MySQL 作为数据源
-      MYSQL_SERVICE_HOST: mysql  # 设置 MySQL 的主机名为 mysql
+      MYSQL_SERVICE_HOST: mysql # 设置 MySQL 的主机名为 mysql
       MYSQL_SERVICE_PORT: 3306  # 设置 MySQL 的端口为 3306
       MYSQL_SERVICE_DB_NAME: nacos_config  # 设置 Nacos 使用的数据库名
+      MYSQL_SERVICE_USER: root
+      MYSQL_SERVICE_PASSWORD: 123456
+    networks:
+      - nacos-mysql3
+    depends_on:
+      - mysql
+networks:
+  nacos-mysql3:
+    name: nacos-mysql3
+    driver: bridge
